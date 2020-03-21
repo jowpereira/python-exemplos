@@ -9,16 +9,16 @@ from pmdarima.arima import ndiffs
 
 if __name__ == "__main__":
     
+    #getData 
     if not mt5.initialize():
         print("initialize() failed")
         mt5.shutdown()
-    stockdata = pd.DataFrame()
+    
     rates = mt5.copy_rates_from_pos("USDJPY", mt5.TIMEFRAME_M3, 0, 300)
     mt5.shutdown()
     
     df = pd.DataFrame(rates)
     df['time']=pd.to_datetime(df['time'], unit='s')
-    #df = df.set_index(['time'])
     print(df.head(5))
 
     train_len = int(df.shape[0] * 0.7)
