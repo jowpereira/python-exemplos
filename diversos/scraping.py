@@ -19,7 +19,7 @@ class Validation(object):
         print('negocia, está fora do horario de noticias')
     
     """
-    def __init__(self, url="https://www.metalsmine.com/calendar?day=today"):
+    def __init__(self, url="https://www.forexfactory.com/calendar?day=today"):
         self.__url = url
 
     def __process_time(self, intime, start, end):
