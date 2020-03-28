@@ -71,6 +71,7 @@ class Validation(object):
         session = requests.Session()
         session.max_redirects = 60
         page = session.get(self.__url)
+        content = page.content
         soup = BeautifulSoup(content, "html.parser")
         table = soup.find_all("tr", {"class": "calendar_row"})
         forcal = []
