@@ -8,8 +8,12 @@ import datetime as dt
 class Validation(object):
     """
     Exemplo de uso:
+    '''
+    https://www.forexfactory.com/calendar?day=today
+    https://www.metalsmine.com/calendar?day=today
 
-    y = Validation()
+    '''
+    y = Validation("https://www.energyexch.com/calendar?day=today")
     dataIni = dt.time(hour=8, minute=10)
     dataFim = dt.time(hour=10, minute=35)
 
@@ -19,7 +23,7 @@ class Validation(object):
         print('negocia, está fora do horario de noticias')
     
     """
-    def __init__(self, url="https://www.forexfactory.com/calendar?day=today"):
+    def __init__(self, url="https://www.metalsmine.com/calendar?day=today"):
         self.__url = url
 
     def __process_time(self, intime, start, end):
@@ -94,7 +98,7 @@ class Validation(object):
         df = pandas.DataFrame(forcal)
         return df[["Currency", "Event", "Impact", "Time_Eastern", "Actual", "Forecast", "Previous"]]
     
-y = Validation()
+y = Validation("https://www.energyexch.com/calendar?day=today")
 dataIni = dt.time(hour=8, minute=10)
 dataFim = dt.time(hour=10, minute=35)
 
