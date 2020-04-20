@@ -8,6 +8,7 @@ BANDIT_PROBABILITIES = [0.2 ,0.5, 0.75]
 
 class Bandit:
   def __init__(self, p):
+    #Distribuição de Bernoulli -> https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Bernoulli     
     # p: the win rate
     self.p = p
     self.p_estimate = 0.
@@ -18,8 +19,6 @@ class Bandit:
     return np.random.random() < self.p
   
   def update(self, x):
-    #Distribuição de Bernoulli -> https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Bernoulli     
-    #                          -> https://en.wikipedia.org/wiki/Bernoulli_distribution
     self.N += 1.
     self.p_estimate = ((self.N -1)*self.p_estimate + x) / self.N
 
