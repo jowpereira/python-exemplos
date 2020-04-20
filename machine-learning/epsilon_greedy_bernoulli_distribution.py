@@ -18,6 +18,8 @@ class Bandit:
     return np.random.random() < self.p
   
   def update(self, x):
+    #Distribuição de Bernoulli -> https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_de_Bernoulli     
+    #                          -> https://en.wikipedia.org/wiki/Bernoulli_distribution
     self.N += 1.
     self.p_estimate = ((self.N -1)*self.p_estimate + x) / self.N
 
